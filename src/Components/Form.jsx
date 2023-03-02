@@ -29,7 +29,8 @@ function Login() {
     let validation = new Validator(data, rules, {
       required: "Field tidak boleh kosong",
       email: "Format email salah",
-      min: "Minimum input :attribute :min karakter",
+      regex:
+        "Minimum input 8 karakter, Must have atleast 1 uppercase, 1 lowercase letter, 1 number, and use #?!@$%^&*",
     });
 
     validation.passes();
