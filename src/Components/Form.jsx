@@ -20,14 +20,16 @@ function Login() {
     let data = { ...form };
     let rules = {
       email: "required|email",
-      password: "required|numeric|min:8",
+      password: [
+        "required",
+        "regex:^(?=[^a-z\n]*[a-z])(?=[^0-9\n]*[0-9])(?=[^#?!@$%^&*\n-]*[#?!@$%^&*-]).{8,}$",
+      ],
     };
 
     let validation = new Validator(data, rules, {
       required: "Field tidak boleh kosong",
       email: "Format email salah",
       min: "Minimum input :attribute :min karakter",
-      numeric: "Password hanya boleh angka",
     });
 
     validation.passes();
